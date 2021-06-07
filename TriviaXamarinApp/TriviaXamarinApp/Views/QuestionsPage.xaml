@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.QuestionsPage"
+             x:Name="QuestionPageName">
+    <ContentPage.Content>
+        <StackLayout x:Name="questionStack">
+            <Label Text="Trivia Madness!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                   TextColor="DarkRed"
+                   TextDecorations="Underline"
+                   FontSize="34"/>
+
+            <Label Text="{Binding Source={x:Reference QuestionPageName}, Path=BindingContext.DTP.currentUser.NickName}" FontSize="18" TextDecorations="Underline"/>
+            <Label Text="{Binding Points}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" TextColor="MediumVioletRed"/>
+
+            <Label Text ="{Binding QuestionText}" VerticalOptions="Fill" HorizontalOptions="Center" FontSize="21" FontFamily="David" TextColor="{Binding QuestionColor}"/>
+            <Label Text ="{Binding QuestionAuthor}" VerticalOptions="Fill" HorizontalOptions="Start" FontFamily="David" FontSize="16" FontAttributes="Bold" TextDecorations="Underline"/>
+
+            <CollectionView ItemsSource="{Binding AnswersCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Button Text="{Binding}" Command="{Binding Source={x:Reference QuestionPageName}, Path=BindingContext.UserAnswerCommand}" CommandParameter="{Binding}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="100" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Button Text="New Question" BackgroundColor="LawnGreen" Command="{Binding NextQuestionCommand}" WidthRequest="100"/>
+            <Button Text="Add Question" BackgroundColor="{Binding AddQuesColor}" Command="{Binding AddQuestionCommand}" WidthRequest="100"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.SignUpPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Sign Up:"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding statusText}" TextDecorations="Underline" FontSize="13"/>
+            <Entry Text="{Binding Nickname}" Placeholder="NickName" PlaceholderColor="PaleVioletRed" BackgroundColor="LightYellow"/>
+            <Entry Text="{Binding Email}" Placeholder="Email" PlaceholderColor="PaleVioletRed"   BackgroundColor="LightYellow"/>
+            <Entry Text="{Binding Password}" BackgroundColor="LightYellow" Placeholder="Password" PlaceholderColor="DarkRed" IsPassword="True" />
+
+            <Button Text="Sign Up!" BackgroundColor="ForestGreen" Command="{Binding SignUpCommand}"></Button>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

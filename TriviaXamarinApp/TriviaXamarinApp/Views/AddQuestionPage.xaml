@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.AddQuestionPage"
+             x:Name="AddQuesPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Enter the question" FontSize="14" FontFamily="David" TextDecorations="Underline"/>
+            <Entry Text="{Binding Source={x:Reference AddQuesPage}, Path=BindingContext.AddQuestion.QText}" BackgroundColor="WhiteSmoke"/>
+
+            <Label Text="Enter the correct answer." FontSize="14" FontFamily="David" TextDecorations="Underline"/>
+            <Entry Text="{Binding Source={x:Reference AddQuesPage}, Path=BindingContext.AddQuestion.CorrectAnswer}" BackgroundColor="WhiteSmoke"/>
+
+            <Label Text="Enter three wrong answers." FontSize="14" FontFamily="David" TextDecorations="Underline"/>
+            <Entry Text="{Binding Source={x:Reference AddQuesPage}, Path=BindingContext.AddQuestion.OtherAnswers[0]}" BackgroundColor="WhiteSmoke"/>
+
+            <Entry Text="{Binding Source={x:Reference AddQuesPage}, Path=BindingContext.AddQuestion.OtherAnswers[1]}" BackgroundColor="WhiteSmoke"/>
+
+            <Entry Text="{Binding Source={x:Reference AddQuesPage}, Path=BindingContext.AddQuestion.OtherAnswers[2]}" BackgroundColor="WhiteSmoke"/>
+
+            <Button Text="Complete" Command="{Binding AddQuestionCommand}" BackgroundColor="LightGreen" HorizontalOptions="Center" VerticalOptions="End"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
